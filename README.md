@@ -8,5 +8,5 @@ It's Simple, To Start Go To The Github Page (That Your Reading Right Now) Then A
 I Can't Really Say That In Words, But There Will Be A Guide.PDF In The Repo In The Guidebook Folder
 
 # Credits
-Programmed By Joshua Michael
+Programmed By Joshua Michael,
 Inspired By The Engine IDTech Written By John Carmack
