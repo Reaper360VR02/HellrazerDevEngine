@@ -1,4 +1,3 @@
-from ast import While
 import pygame as pg
 import sys
 from Settings import *

@@ -46,6 +46,7 @@ class Player:
         self.x * 100 + WIDTH * math.cos (self.angle),
         self.x * 100 + WIDTH * math.sin (self.angle), 2)
         pg.draw.circle(self.game.screen, 'green'(self.x * 100), 15)
+        del str
 
     def update(self):
         self.movement()
