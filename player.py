@@ -31,8 +31,7 @@ class Player:
             dx += speed_sin
             dy += speed_cos
 
-        self.x += dx
-        self.y += dy
+        self.CheckWallCol(dx,dy)
 
         if keys [pg.K_LEFT]:
             self.angle -= PLAYER_ROT_SPEED * self.game.delta_time
@@ -41,12 +40,20 @@ class Player:
 
         self.angle %= math.tau
 
+    def CheckWall(self, x, y):
+        return (x,y) not in self.game.map.world_map
+
+    def CheckWallCol(self, dx, dy):
+        if self.CheckWall(init(self.x + dx), int(self.y)):
+            self.x += dx
+        if self.CheckWall(int(self.x), int(self.y + dy)):
+            self.x += dy
+
     def draw(self):
-        pg.draw.line(self.game.screen, 'yellow' (self.x * 100, self.y * 100),
-        self.x * 100 + WIDTH * math.cos (self.angle),
-        self.x * 100 + WIDTH * math.sin (self.angle), 2)
-        pg.draw.circle(self.game.screen, 'green'(self.x * 100), 15)
-        del str
+        pg.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
+        (self.x * 100 + WIDTH * math.cos (self.angle),
+        self.x * 100 + WIDTH * math.sin (self.angle)), 2)
+        pg.draw.circle(self.game.screen, 'green', (self.x * 100, self.y * 100), 15)
 
     def update(self):
         self.movement()
@@ -55,6 +62,6 @@ class Player:
         def pos(self):
             return self.x, self.y
         
-        @property
+        property
         def map_pos(self):
             return init(self.x), int(self.y)
